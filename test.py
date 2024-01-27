@@ -6,7 +6,9 @@ test2 = "\lnot p"
 expr_str2 = """\lnot (p \wedge \lnot q)"""
 
 expr = Expression(expr_str)
-expr.paranthesis_check()
-expr.remove_extra_paranthesis()
-expr.token_check()
-expr.check_wff_rules()
+print(expr.to_sympy())
+
+# expr.paranthesis_check()
+# expr.remove_extra_paranthesis()
+# expr.token_check()
+# expr.check_wff_rules()

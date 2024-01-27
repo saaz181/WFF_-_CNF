@@ -1,6 +1,8 @@
 from enum import Enum
 import string
 import re
+from sympy import sympify
+
 
 class Operators(Enum):
     _and = '\wedge'
@@ -19,6 +21,19 @@ class Expression:
         self.paranthesis = ['(', ')']
         self.terms = [_char for _char in string.ascii_letters + string.whitespace]
         self.tokens = self.operators + self.paranthesis + self.terms
+
+    
+    def to_sympy(self):
+        """
+        Convert the logical expression to a SymPy expression.
+        """
+        sympy_expr = sympify(self.expr)
+        return sympy_expr
+
+
+    def convert_latex_to_sympy(self):
+        print(self.expr_tokens)
+
 
     @staticmethod
     def string_replacement(_str: str, replacement: str, start_index: int, end_index: int) -> str:
